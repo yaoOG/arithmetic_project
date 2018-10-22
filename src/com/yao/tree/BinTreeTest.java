@@ -7,12 +7,17 @@ public class BinTreeTest {
 
 
     public final static int MAX = 40;
-    private Object data;//数据元数
+    //数据元数
+    private Object data;
     private BinTreeTest left, right;
-    private int nMaxLeft;//左子树的最长距离
-    private int nMaxRight;//右子树的最长距离;
-    private int nMaxLen; //最长距离
-    private int treeWidth;//二叉树宽度
+    //左子树的最长距离
+    private int nMaxLeft;
+    //右子树的最长距离;
+    private int nMaxRight;
+    //最长距离
+    private int nMaxLen;
+    //二叉树宽度
+    private int treeWidth;
 
 
     public BinTreeTest() {}
@@ -35,7 +40,7 @@ public class BinTreeTest {
     }
 
     //层次遍历二叉树 ，并获取二叉树的宽度
-    public void LayerOrder(BinTreeTest root) {
+    public void layerOrder(BinTreeTest root) {
         if (root == null) {
             return;
         }
@@ -122,7 +127,8 @@ public class BinTreeTest {
     public int getMaxDistance(BinTreeTest parent) {
 
         if (parent == null) {
-            return 0; //叶子节点 返回
+            //叶子节点 返回
+            return 0;
         }
         if (parent.left == null) {
             parent.nMaxLeft = 0;
@@ -131,10 +137,12 @@ public class BinTreeTest {
             parent.nMaxRight = 0;
         }
         if (parent.left != null) {
-            getMaxDistance(parent.left); //如果左子树不为空，递归寻找左子树最长距离
+            //如果左子树不为空，递归寻找左子树最长距离
+            getMaxDistance(parent.left);
         }
         if (parent.right != null) {
-            getMaxDistance(parent.right);//如果右子树不为空，递归寻找右子树最长距离
+            //如果右子树不为空，递归寻找右子树最长距离
+            getMaxDistance(parent.right);
         }
         if (parent.left != null) {
             parent.nMaxLeft = Math.max(parent.left.nMaxLeft, parent.left.nMaxRight) + 1;
