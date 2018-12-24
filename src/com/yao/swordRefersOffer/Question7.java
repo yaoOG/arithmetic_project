@@ -23,13 +23,13 @@ public class Question7 {
     }
     /**
      *
-     * @param PreOrder
+     * @param preOrder
      *            前序遍历序列
      * @param startPreIndex
      *            前序序列开始位置
      * @param endPreIndex
      *            前序序列结束位置
-     * @param InOrder
+     * @param inOrder
      *            中序遍历序列
      * @param startInIndex
      *            中序序列开始位置
@@ -77,10 +77,10 @@ public class Question7 {
         }
         return root;
     }
-    static class InvalidPutException extends Exception {
+    private static class InvalidPutException extends Exception {
         private static final long serialVersionUID = 1L;
     }
-    public static void printPreOrder(BinaryTreeNode root) {
+    private static void printPreOrder(BinaryTreeNode root) {
         if (root == null) {
             return;
         } else {
