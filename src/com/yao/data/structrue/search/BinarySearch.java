@@ -1,11 +1,11 @@
-package com.yao.dataStructrue.search;
+package com.yao.data.structrue.search;
 
 /**
  * @author zhuyao
  * @date 2018/08/01
  */
 public class BinarySearch {
-    public static Integer binarySearch(int[] list, int item) {
+    private static Integer binarySearch(int[] list, int item) {
         int low = 0;
         int high = list.length - 1;
 

@@ -19,23 +19,21 @@ import java.util.List;
 public class Main22 {
 
     public List<String> generateParenthesis(int n) {
-        List<String> list = new ArrayList<String>();
-        backtrack(list, "", 0, 0, n);
-        return list;
+        List<String> result = new ArrayList<>();
+        backtrack(result, "", n, n);
+        return result;
     }
 
-    private void backtrack(List<String> list, String str, int open, int close, int max) {
-
-        if (str.length() == max * 2) {
-            list.add(str);
+    private void backtrack(List<String> result, String subList, int left, int right) {
+        if (left == 0 && right == 0) {
+            result.add(subList);
             return;
         }
-
-        if (open < max) {
-            backtrack(list, str + "(", open + 1, close, max);
+        if (left > 0) {
+            backtrack(result, subList + "(", left - 1, right);
         }
-        if (close < open) {
-            backtrack(list, str + ")", open, close + 1, max);
+        if (right > left) {
+            backtrack(result, subList + ")", left, right - 1);
         }
     }
 }

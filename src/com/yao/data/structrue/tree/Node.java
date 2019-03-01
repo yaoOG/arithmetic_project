@@ -1,4 +1,4 @@
-package com.yao.dataStructrue.tree;
+package com.yao.data.structrue.tree;
 
 /**
  * @author zhuyao

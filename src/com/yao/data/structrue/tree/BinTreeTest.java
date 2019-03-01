@@ -1,4 +1,4 @@
-package com.yao.dataStructrue.tree;
+package com.yao.data.structrue.tree;
 
 import java.util.LinkedList;
 import java.util.Queue;
