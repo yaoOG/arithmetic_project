@@ -22,7 +22,7 @@ public class FastSort {
         int[] tempArray = {12, 20, 5, 16, 15, 1, 30, 45, 23, 9};
         int start = 0;
         int end = tempArray.length - 1;
-        sort(tempArray, start, end);
+        sort2(tempArray, start, end);
         for (int i : tempArray) {
             System.out.println(i);
         }
