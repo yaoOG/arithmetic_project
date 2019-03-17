@@ -46,43 +46,129 @@ public class BinaryTreeTraversal {
     /**
      * 前序遍历
      *
-     * @param parent root节点
+     * @param root root节点
      */
-    private static void preOrder(TreeNode parent) {
-        if (parent == null) {
+    private List<Integer> preOrderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.empty()){
+            root = stack.pop();
+            list.add(root.val);
+            if(root.right != null) {
+                stack.push(root.right);
+            }
+            if(root.left != null) {
+                stack.push(root.left);
+            }
+        }
+        return list;
+    }
+
+    public List<Integer> preorderTraversalRecursion(TreeNode root) {
+        List<Integer> pre = new LinkedList<>();
+        preHelper(root,pre);
+        return pre;
+    }
+    private void preHelper(TreeNode root, List<Integer> pre) {
+        if(root==null) {
             return;
         }
-        System.out.println(parent.val + " ");
-        preOrder(parent.left);
-        preOrder(parent.right);
+        pre.add(root.val);
+        preHelper(root.left,pre);
+        preHelper(root.right,pre);
     }
 
     /**
      * 中序遍历
      *
-     * @param parent root节点
+     * @param root root节点
      */
-    private static void inOrder(TreeNode parent) {
-        if (parent == null) {
-            return;
+    public List<Integer> inorderTraversalRecursion(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        // method 1: recursion
+        helper(root, res);
+        return res;
+    }
+
+    private void helper(TreeNode root, List<Integer> res) {
+        if (root != null) {
+            helper(root.left, res);
+            res.add(root.val);
+            helper(root.right, res);
         }
-        inOrder(parent.left);
-        System.out.println(parent.val + " ");
-        inOrder(parent.right);
+    }
+
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new LinkedList<>();
+        if (root == null) {
+            return res;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        TreeNode cur = root;
+        while (cur != null || !stack.isEmpty()) {
+            // Travel to each node's left child, till reach the left leaf
+            while (cur != null) {
+                stack.push(cur);
+                cur = cur.left;
+            }
+            // Backtrack to higher level node A
+            cur = stack.pop();
+            // Add the node to the result list
+            res.add(cur.val);
+            // Switch to A'right branch
+            cur = cur.right;
+        }
+        return res;
     }
 
     /**
      * 后序遍历
      *
-     * @param parent root节点
+     * @param root root节点
      */
-    private static void postOrder(TreeNode parent) {
-        if (parent == null) {
+    public List<Integer> postOrderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if(root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while(!stack.empty()){
+            root = stack.pop();
+            list.add(0, root.val);
+            if(root.left != null) {
+                stack.push(root.left);
+            }
+            if(root.right != null) {
+                stack.push(root.right);
+            }
+        }
+        return list;
+    }
+
+    public List<Integer> postOrderTraversalRecursion(TreeNode root) {
+        List<Integer> resultList = new ArrayList<>();
+        if(root==null){
+            return resultList;
+        }
+
+        help(resultList,root);
+        return resultList;
+    }
+
+    private void help(List<Integer> resultList, TreeNode root){
+
+        if(root==null){
             return;
         }
-        postOrder(parent.left);
-        postOrder(parent.right);
-        System.out.println(parent.val + " ");
+        help(resultList,root.left);
+        help(resultList,root.right);
+        resultList.add(root.val);
     }
 
     /**
@@ -117,12 +203,15 @@ public class BinaryTreeTraversal {
         return (left == 0 || right == 0) ? left + right + 1 : Math.min(left, right) + 1;
     }
 
-
-    //两节点间的最远距离
-    private int getMaxDistance(TreeNode parent) {
+    /**
+     * 两节点间的最远距离
+     *
+     * @param parent parentNode
+     */
+    private void getMaxDistance(TreeNode parent) {
         if (parent == null) {
             //叶子节点 返回
-            return 0;
+            return;
         }
         if (parent.left == null) {
             parent.nMaxLeft = 0;
@@ -145,11 +234,10 @@ public class BinaryTreeTraversal {
             parent.nMaxRight = Math.max(parent.right.nMaxLeft, parent.right.nMaxRight) + 1;
         }
         nMaxLen = Math.max(parent.nMaxLeft + parent.nMaxRight, nMaxLen);
-        return nMaxLen;
     }
 
     public static void main(String[] args) {
-        /**
+        /*
          *            3
          *         /     \
          *        9       20
@@ -157,7 +245,6 @@ public class BinaryTreeTraversal {
          *              15  7
          *
          */
-        //[3,9,20,null,null,15,7]
         TreeNode root = new TreeNode(3);
         TreeNode root1 = new TreeNode(9);
         TreeNode root2 = new TreeNode(20);
@@ -168,8 +255,8 @@ public class BinaryTreeTraversal {
         root2.left = root3;
         root2.right = root4;
         BinaryTreeTraversal binaryTreeTraversal = new BinaryTreeTraversal();
-        int count = binaryTreeTraversal.allLeaves(root);
-        System.out.println(count);
+        List<Integer> integers = binaryTreeTraversal.preOrderTraversal(root);
+        System.out.println(integers);
 //        List<List<Integer>> lists = binaryTreeTraversal.levelOrder(root);
 //        for (List<Integer> list : lists) {
 //            System.out.println(list);
