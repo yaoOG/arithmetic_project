@@ -50,18 +50,18 @@ public class BinaryTreeTraversal {
      */
     private List<Integer> preOrderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        while(!stack.empty()){
+        while (!stack.empty()) {
             root = stack.pop();
             list.add(root.val);
-            if(root.right != null) {
+            if (root.right != null) {
                 stack.push(root.right);
             }
-            if(root.left != null) {
+            if (root.left != null) {
                 stack.push(root.left);
             }
         }
@@ -70,16 +70,17 @@ public class BinaryTreeTraversal {
 
     public List<Integer> preorderTraversalRecursion(TreeNode root) {
         List<Integer> pre = new LinkedList<>();
-        preHelper(root,pre);
+        preHelper(root, pre);
         return pre;
     }
+
     private void preHelper(TreeNode root, List<Integer> pre) {
-        if(root==null) {
+        if (root == null) {
             return;
         }
         pre.add(root.val);
-        preHelper(root.left,pre);
-        preHelper(root.right,pre);
+        preHelper(root.left, pre);
+        preHelper(root.right, pre);
     }
 
     /**
@@ -133,18 +134,18 @@ public class BinaryTreeTraversal {
      */
     public List<Integer> postOrderTraversal(TreeNode root) {
         List<Integer> list = new ArrayList<>();
-        if(root == null) {
+        if (root == null) {
             return list;
         }
         Stack<TreeNode> stack = new Stack<>();
         stack.push(root);
-        while(!stack.empty()){
+        while (!stack.empty()) {
             root = stack.pop();
             list.add(0, root.val);
-            if(root.left != null) {
+            if (root.left != null) {
                 stack.push(root.left);
             }
-            if(root.right != null) {
+            if (root.right != null) {
                 stack.push(root.right);
             }
         }
@@ -153,21 +154,21 @@ public class BinaryTreeTraversal {
 
     public List<Integer> postOrderTraversalRecursion(TreeNode root) {
         List<Integer> resultList = new ArrayList<>();
-        if(root==null){
+        if (root == null) {
             return resultList;
         }
 
-        help(resultList,root);
+        help(resultList, root);
         return resultList;
     }
 
-    private void help(List<Integer> resultList, TreeNode root){
+    private void help(List<Integer> resultList, TreeNode root) {
 
-        if(root==null){
+        if (root == null) {
             return;
         }
-        help(resultList,root.left);
-        help(resultList,root.right);
+        help(resultList, root.left);
+        help(resultList, root.right);
         resultList.add(root.val);
     }
 
