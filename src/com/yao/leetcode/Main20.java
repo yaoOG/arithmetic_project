@@ -4,33 +4,38 @@ import java.util.HashMap;
 import java.util.Stack;
 
 /**
- * @author zhuyao
- * @date 2019/02/20
+ * @author choo
+ * <p>
+ * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+ * <p>
+ * 有效字符串需满足：
+ * <p>
+ * 左括号必须用相同类型的右括号闭合。
+ * 左括号必须以正确的顺序闭合。
+ * 注意空字符串可被认为是有效字符串。
  */
 public class Main20 {
+
+    public static void main(String[] args) {
+        Main20 main20 = new Main20();
+        boolean result = main20.isValid("())(");
+        System.out.println(result);
+    }
+
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
-        HashMap<Character, Character> temp = new HashMap<>(4);
-        temp.put(')', '(');
-        temp.put(']', '[');
-        temp.put('}', '{');
-
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            // If the current character is a closing bracket.
-            if (temp.containsKey(c)) {
-                // Get the top element of the stack. If the stack is empty, set a dummy value of '#'
-                char topElement = stack.empty() ? '#' : stack.pop();
-                // If the mapping for this bracket doesn't match the stack's top element, return false.
-                if (topElement != temp.get(c)) {
-                    return false;
-                }
-            } else {
-                // If it was an opening bracket, push to the stack.
-                stack.push(c);
+        char[] chars = s.toCharArray();
+        for (char tmp : chars) {
+            if (tmp == '(') {
+                stack.push(')');
+            } else if (tmp == '{') {
+                stack.push('}');
+            } else if (tmp == '[') {
+                stack.push(']');
+            } else if (stack.isEmpty() || stack.pop() != tmp) {
+                return false;
             }
         }
-        // If the stack still contains elements, then it is an invalid expression.
         return stack.isEmpty();
     }
 }
