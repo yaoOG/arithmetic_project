@@ -24,33 +24,36 @@ import java.util.*;
  * @date 2019/03/01
  */
 public class Main102 {
+
+    /**
+     * 依次遍历每一层，将该层的节点值添加到结果list中，并将该层节点的左孩子节点和右孩子节点入栈，继续循环
+     * @param root
+     * @return
+     */
     public List<List<Integer>> levelOrder(TreeNode root) {
-        if (root == null) {
-            return Collections.emptyList();
-        }
+
+        if (root == null) return Collections.emptyList();
         List<List<Integer>> result = new ArrayList<>();
         Queue<TreeNode> queue = new LinkedList<>();
+        //添加元素到队列尾部
         queue.offer(root);
         while (!queue.isEmpty()) {
             int curSize = queue.size();
             List<Integer> numbers = new ArrayList<>();
+            //遍历每一层
             for (int i = 0; i < curSize; i++) {
+                //取队首元素并删除
                 TreeNode curNode = queue.poll();
                 if (curNode != null) {
+                    //将当前层的节点添加到结果中
                     numbers.add(curNode.val);
-                    if (curNode.left != null) {
-                        queue.offer(curNode.left);
-                    }
-                    if (curNode.right != null) {
-                        queue.offer(curNode.right);
-                    }
+                    //将下一层的节点入栈
+                    if (curNode.left != null) queue.offer(curNode.left);
+                    if (curNode.right != null) queue.offer(curNode.right);
                 }
             }
-
             result.add(numbers);
         }
-
         return result;
-
     }
 }

@@ -4,8 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * @author zhuyao
- * @date 2019/03/18
+ * @author Daniel:)
  * 使用队列实现栈的下列操作：
  * <p>
  * push(x) -- 元素 x 入栈
@@ -19,38 +18,31 @@ import java.util.Queue;
  * 你可以假设所有操作都是有效的（例如, 对一个空的栈不会调用 pop 或者 top 操作）。
  */
 public class Main225 {
-    /**
-     * Your MyStack object will be instantiated and called as such:
-     * MyStack obj = new MyStack();
-     * obj.push(x);
-     * int param_2 = obj.pop();
-     * int param_3 = obj.top();
-     * boolean param_4 = obj.empty();
-     */
-    class MyStack {
-        Queue<Integer> queue;
+}
 
-        public MyStack() {
-            this.queue = new LinkedList<>();
-        }
+class MyStack {
+    Queue<Integer> queue;
 
-        public void push(int x) {
-            queue.add(x);
-            for (int i = 0; i < queue.size() - 1; i++) {
-                queue.add(queue.poll());
-            }
-        }
+    public MyStack() {
+        this.queue = new LinkedList<>();
+    }
 
-        public int pop() {
-            return queue.poll();
+    public void push(int x) {
+        queue.add(x);
+        for (int i = 0; i < queue.size() - 1; i++) {
+            queue.add(queue.poll());
         }
+    }
 
-        public int top() {
-            return queue.peek();
-        }
+    public int pop() {
+        return queue.poll();
+    }
 
-        public boolean empty() {
-            return queue.isEmpty();
-        }
+    public int top() {
+        return queue.peek();
+    }
+
+    public boolean empty() {
+        return queue.isEmpty();
     }
 }

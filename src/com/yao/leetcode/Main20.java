@@ -1,6 +1,5 @@
 package com.yao.leetcode;
 
-import java.util.HashMap;
 import java.util.Stack;
 
 /**
@@ -18,11 +17,17 @@ public class Main20 {
 
     public static void main(String[] args) {
         Main20 main20 = new Main20();
-        boolean result = main20.isValid("())(");
+        boolean result = main20.isValid1("())(");
         System.out.println(result);
     }
 
-    public boolean isValid(String s) {
+    /**
+     * 如果当前元素是[,{,(则将其对应的右括号入栈，如果是右括号则判断栈顶元素是否和该右括号相等，相等则继续，不相等则为错误结果
+     *
+     * @param s
+     * @return
+     */
+    public boolean isValid1(String s) {
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         for (char tmp : chars) {

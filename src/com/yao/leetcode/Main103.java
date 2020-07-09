@@ -28,23 +28,12 @@ import java.util.Queue;
  */
 @SuppressWarnings("unused")
 public class Main103 {
-    public static void main(String[] args) {
-        TreeNode root = new TreeNode(3);
-        TreeNode root1 = new TreeNode(9);
-        TreeNode root2 = new TreeNode(20);
-        TreeNode root3 = new TreeNode(15);
-        TreeNode root4 = new TreeNode(7);
-        root.left = root1;
-        root.right = root2;
-        root2.left = root3;
-        root2.right = root4;
-        Main103 main103 = new Main103();
-        List<List<Integer>> lists = main103.zigzagLevelOrder(root);
-        for (List<Integer> list : lists) {
-            System.out.println(list);
-        }
-    }
 
+    /**
+     * 在层次遍历的基础上，新建一个变量order来控制放入当前层list的顺序
+     * @param root
+     * @return
+     */
     private List<List<Integer>> zigzagLevelOrder(TreeNode root) {
         List<List<Integer>> res = new ArrayList<>();
         if (root == null) {
@@ -78,4 +67,5 @@ public class Main103 {
         }
         return res;
     }
+
 }
