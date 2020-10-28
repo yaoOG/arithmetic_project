@@ -17,4 +17,24 @@ public class FeiBo {
                 System.out.println();
         }
     }
+
+    /**
+     * 动态规划
+     * @param n n
+     * @return result
+     */
+    public int Fibonacci(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int last = 1;
+        int nextToLast = 0;
+        int result = 1;
+        for (int i = 2; i <= n; i++) {
+            result = last + nextToLast;
+            nextToLast = last;
+            last = result;
+        }
+        return result;
+    }
 }

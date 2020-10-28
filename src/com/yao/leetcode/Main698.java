@@ -28,8 +28,10 @@ public class Main698 {
     public boolean canPartition(int[] nums, int[] visited, int startIndex, int k, int curSum, int curNum, int target) {
         if (k == 1)
             return true;
+        //满足条件继续探索下一层
         if (curSum == target && curNum > 0)
             return canPartition(nums, visited, 0, k - 1, 0, 0, target);
+        //当前层的处理
         for (int i = startIndex; i < nums.length; i++) {
             if (visited[i] == 0) {
                 visited[i] = 1;
