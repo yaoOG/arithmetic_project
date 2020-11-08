@@ -27,14 +27,17 @@ public class ShellSort {
     }
 
     private static void shellSort(int[] arr) {
-        int j;
-        for (int gap = arr.length / 2; gap > 0; gap = gap / 2) {
-            for (int i = gap; i < arr.length; i++) {
-                int tmp = arr[i];
-                for (j = i; j >= gap && tmp < arr[j - gap]; j = j - gap) {
-                    arr[j] = arr[j - gap];
+        int length = arr.length;
+        int temp;
+        for (int step = length / 2; step >= 1; step /= 2) {
+            for (int i = step; i < length; i++) {
+                temp = arr[i];
+                int j = i - step;
+                while (j >= 0 && arr[j] > temp) {
+                    arr[j + step] = arr[j];
+                    j -= step;
                 }
-                arr[j] = tmp;
+                arr[j + step] = temp;
             }
         }
     }

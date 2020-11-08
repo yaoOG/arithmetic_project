@@ -8,8 +8,7 @@ package com.yao.data.structrue.sort.insert;
  *    最好的情况下(表中元素已经有序)：所需的比较次数为n-1
  * 3.时间复杂度为O(n2)。
  * 4.稳定。
- * @author zhuyao
- * @date 2019/03/01
+ * @author daniel
  */
 public class InsertSort {
 
@@ -32,14 +31,14 @@ public class InsertSort {
      * 直接插入排序
      */
     private static void insertSort(int[] arr) {
-        int j; // 已排序列表下标
-        int t; // 待排序元素
+        int j, // 已排序列表下标
+         t; // 待排序元素
         for (int i = 1; i < arr.length; i++) {
             if (arr[i] < arr[i - 1]) {
                 // 赋值给待排序元素
                 t = arr[i];
                 for (j = i - 1; j >= 0 && arr[j] > t; j--) {
-                    // 从后往前遍历已排序列表，逐个和待排序元素比较，如果已排序元素较大，则将它后移
+                    // 从后往前遍历 已排序 列表，逐个和待排序元素比较，如果已排序元素较大，则将它后移
                     arr[j + 1] = arr[j];
                 }
                 // 将待排序元素插入到正确的位置

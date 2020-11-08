@@ -7,7 +7,6 @@ package com.yao.data.structrue.sort.insert;
  * 3.稳定
  *
  * @author zhuyao
- * @date 2019/03/01
  */
 public class BinaryInsertSort {
 

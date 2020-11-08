@@ -2,10 +2,9 @@ package com.yao.data.structrue.search;
 
 /**
  * @author zhuyao
- * @date 2018/08/01
  */
 public class BinarySearch {
-    private static Integer binarySearch(int[] list, int item) {
+    private static int binarySearch(int[] list, int item) {
         int low = 0;
         int high = list.length - 1;
 
@@ -21,7 +20,7 @@ public class BinarySearch {
                 low = mid + 1;
             }
         }
-        return null;
+        return 0;
     }
 
     public static void main(String[] args) {
