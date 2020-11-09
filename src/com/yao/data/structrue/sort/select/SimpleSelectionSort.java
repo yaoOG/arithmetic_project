@@ -2,13 +2,18 @@ package com.yao.data.structrue.sort.select;
 
 /**
  * 简单选择排序
+ * 步骤：
+ * 首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置。
+ * 再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。
+ * 重复第二步，直到所有元素均排序完毕。
+ *
+ * 性能：
  * 1.空间效率O(1).
  * 2.元素间比较次数与序列的初始状态无关，始终是n(n-1)/2次。
  * 3.时间复杂度O(n2).
  * 4.不稳定
  *
- * @author zhuyao
- * @date 2019/03/01
+ * @author Daniel
  */
 public class SimpleSelectionSort {
 

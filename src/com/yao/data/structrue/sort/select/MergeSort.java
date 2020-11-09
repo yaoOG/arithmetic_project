@@ -7,8 +7,7 @@ package com.yao.data.structrue.sort.select;
  * 3.稳定。
  * 4.对n个元素进行k路归并排序，排序的趟数m满足k的m次方等于n，m等于log以k为底n向上取整。
  *
- * @author zhuyao
- * @date 2019/03/01
+ * @author Daniel
  */
 public class MergeSort {
 
