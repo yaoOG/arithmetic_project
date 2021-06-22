@@ -28,6 +28,5 @@ public class BinarySearch {
         int[] myList = {1, 3, 5, 7, 9};
         System.out.println(binarySearch(myList, 3));
         System.out.println(binarySearch(myList, -1));
-
     }
 }

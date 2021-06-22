@@ -17,7 +17,7 @@ public class Main20 {
 
     public static void main(String[] args) {
         Main20 main20 = new Main20();
-        boolean result = main20.isValid1("())(");
+        boolean result = main20.isValid("())(");
         System.out.println(result);
     }
 
@@ -27,7 +27,7 @@ public class Main20 {
      * @param s
      * @return
      */
-    public boolean isValid1(String s) {
+    public boolean isValid(String s) {
         Stack<Character> stack = new Stack<>();
         char[] chars = s.toCharArray();
         for (char tmp : chars) {
