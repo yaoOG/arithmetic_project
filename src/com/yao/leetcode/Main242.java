@@ -47,8 +47,8 @@ public class Main242 {
     /**
      * Hash表方式
      *
-     * 时间复杂度：O(n)O(n)，其中 nn 为 ss 的长度。
-     * 空间复杂度：O(S)O(S)，其中 SS 为字符集大小，此处 S=26S=26。
+     * 时间复杂度：O(n)，其中 n 为 s 的长度。
+     * 空间复杂度：O(S)，其中 S 为字符集大小，此处 S=26S=26。
      * @param s
      * @param t
      * @return
@@ -65,10 +65,10 @@ public class Main242 {
         for (int i = 0; i < t.length(); i++) {
             char charAtT = t.charAt(i);
             int value = map.getOrDefault(charAtT, 0) - 1;
-            map.put(charAtT, value);
             if (value < 0) {
                 return false;
             }
+            map.put(charAtT, value);
         }
         return true;
     }
