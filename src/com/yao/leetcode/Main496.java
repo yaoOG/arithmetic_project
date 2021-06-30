@@ -5,17 +5,15 @@ import java.util.*;
 /**
  * @author Daniel:)
  *
- * 给定两个 没有重复元素 的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。找到 nums1 中每个元素在 nums2 中的下一个比其大的值。
- *
- * nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。
+ * 给定两个没有重复元素的数组nums1 和nums2，其中nums1是nums2的子集。
+ * 找到nums1中每个元素在nums2中的下一个比其大的值。
+ * nums1中数字x的下一个更大元素是指x在nums2中对应位置的右边的第一个比x大的元素。如果不存在，对应位置输出 -1 。
  *
  * 示例 1:
- *
  * 输入: nums1 = [4,1,2], nums2 = [1,3,4,2].
  * 输出: [-1,3,-1]
  *
  * 示例 2:
- *
  * 输入: nums1 = [2,4], nums2 = [1,2,3,4].
  * 输出: [3,-1]
  */
@@ -36,11 +34,26 @@ public class Main496 {
     }
 
     public static void main(String[] args) {
-        int[] findNums = {4,1,2};
+/*        int[] findNums = {4,1,2};
         int[] nums = {1,3,4,2};
         Main496 main496 = new Main496();
-        int[] result = main496.nextGreaterElement(findNums, nums);
-        System.out.println(result);
+        int[] result = main496.nextGreaterElement(findNums, nums);*/
+
+        Deque<Integer> deque = new LinkedList<>();
+        deque.push(1);
+        deque.push(2);
+        deque.push(3);
+
+        Integer first = deque.getFirst();
+        Integer last = deque.getLast();
+
+        Stack<Integer> stack = new Stack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        Integer pop = stack.pop();
+        System.out.println(pop);
+
 
     }
 

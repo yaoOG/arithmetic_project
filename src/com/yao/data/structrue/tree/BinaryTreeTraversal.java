@@ -53,9 +53,9 @@ public class BinaryTreeTraversal {
         if (root == null) {
             return list;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             root = stack.pop();
             list.add(root.val);
             if (root.right != null) {
@@ -66,6 +66,22 @@ public class BinaryTreeTraversal {
             }
         }
         return list;
+    }
+
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> result = new ArrayList<>();
+        if(root == null) return result;
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root);
+        while(!stack.isEmpty()){
+            TreeNode cur = stack.pop();
+            result.add(cur.val);
+            if(cur.right != null)
+                stack.push(cur.right);
+            if(cur.left != null)
+                stack.push(cur.left);
+        }
+        return result;
     }
 
     public List<Integer> preorderTraversalRecursion(TreeNode root) {
@@ -109,7 +125,7 @@ public class BinaryTreeTraversal {
         if (root == null) {
             return res;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         TreeNode cur = root;
         while (cur != null || !stack.isEmpty()) {
             // Travel to each node's left child, till reach the left leaf
@@ -137,9 +153,9 @@ public class BinaryTreeTraversal {
         if (root == null) {
             return list;
         }
-        Stack<TreeNode> stack = new Stack<>();
+        Deque<TreeNode> stack = new LinkedList<>();
         stack.push(root);
-        while (!stack.empty()) {
+        while (!stack.isEmpty()) {
             root = stack.pop();
             list.add(0, root.val);
             if (root.left != null) {
@@ -256,7 +272,7 @@ public class BinaryTreeTraversal {
         root2.left = root3;
         root2.right = root4;
         BinaryTreeTraversal binaryTreeTraversal = new BinaryTreeTraversal();
-        List<Integer> integers = binaryTreeTraversal.preOrderTraversal(root);
+        List<Integer> integers = binaryTreeTraversal.inorderTraversal(root);
         System.out.println(integers);
 //        List<List<Integer>> lists = binaryTreeTraversal.levelOrder(root);
 //        for (List<Integer> list : lists) {

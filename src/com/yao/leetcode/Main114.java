@@ -1,7 +1,9 @@
 package com.yao.leetcode;
 
+import java.util.ArrayList;
 import java.util.Deque;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author zhuyao
@@ -49,4 +51,45 @@ public class Main114 {
             node.left = null;
         }
     }
+
+    public void flatten2(TreeNode root) {
+        List<TreeNode> list = new ArrayList<>();
+        Deque<TreeNode> stack = new LinkedList<>();
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            while (node != null) {
+                list.add(node);
+                stack.push(node);
+                node = node.left;
+            }
+            node = stack.pop();
+            node = node.right;
+        }
+        int size = list.size();
+        for (int i = 1; i < size; i++) {
+            TreeNode prev = list.get(i - 1), curr = list.get(i);
+            prev.left = null;
+            prev.right = curr;
+        }
+    }
+
+    public void flatten3(TreeNode root) {
+        List<TreeNode> list = new ArrayList<>();
+        preorderTraversal(root, list);
+        int size = list.size();
+        for (int i = 1; i < size; i++) {
+            TreeNode prev = list.get(i - 1), curr = list.get(i);
+            prev.left = null;
+            prev.right = curr;
+        }
+    }
+
+    public void preorderTraversal(TreeNode root, List<TreeNode> list) {
+        if (root != null) {
+            list.add(root);
+            preorderTraversal(root.left, list);
+            preorderTraversal(root.right, list);
+        }
+    }
+
 }

@@ -38,14 +38,14 @@ public class Main81 {
      * @return
      */
     public boolean search(int[] nums, int target) {
-        int n = nums.length;
-        if (n == 0) {
+        int length = nums.length;
+        if (length == 0) {
             return false;
         }
-        if (n == 1) {
+        if (length == 1) {
             return nums[0] == target;
         }
-        int left = 0, right = n - 1;
+        int left = 0, right = length - 1;
         while (left <= right) {
             int mid = (left + right) / 2;
             if (nums[mid] == target) {
@@ -61,7 +61,7 @@ public class Main81 {
                     left = mid + 1;
                 }
             } else {
-                if (nums[mid] < target && target <= nums[n - 1]) {
+                if (nums[mid] < target && target <= nums[length - 1]) {
                     left = mid + 1;
                 } else {
                     right = mid - 1;

@@ -1,6 +1,7 @@
 package com.yao.leetcode;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 /**
  * @author choo
@@ -51,6 +52,13 @@ public class Main179 {
         //通过比较(a+b)和(b+a)的大小，就可以判断出a,b两个字符串谁应该在前面
         //所以[3,30,34]排序后变为[34,3,30]
         //[233，23333]排序后变为[23333，233]
+        Arrays.sort(numsToWord, new Comparator<String>() {
+            @Override
+            public int compare(String a, String b) {
+                int i = (b + a).compareTo(a + b);
+                return i;
+            }
+        });
         Arrays.sort(numsToWord, (a, b) -> (b + a).compareTo(a + b));
         //如果排序后的第一个元素是0，那后面的元素肯定小于或等于0，则可直接返回0
         if (numsToWord[0].equals("0")) {
@@ -61,6 +69,12 @@ public class Main179 {
             sb.append(numsToWord[i]);
         }
         return sb.toString();
+    }
+
+    public static void main(String[] args) {
+        Main179 main179 = new Main179();
+        int[] nums = new int[]{3, 30, 34};
+        main179.largestNumber(nums);
     }
 
     /**

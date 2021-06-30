@@ -20,6 +20,11 @@ package com.yao.leetcode;
  *     由于返回类型是整数，小数部分将被舍去。
  */
 public class Main69 {
+    /**
+     * 由于 x 平方根的整数部分 是满足 k^2 <= x的最大 k 值，因此我们可以对 k 进行二分查找，从而得到答案。
+     * @param x
+     * @return
+     */
     public int mySqrt(int x) {
         int left = 0;
         int right = x;
