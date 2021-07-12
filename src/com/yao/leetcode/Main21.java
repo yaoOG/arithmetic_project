@@ -12,7 +12,20 @@ import com.yao.bean.ListNode;
  */
 public class Main21 {
 
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
+    public static void main(String[] args) {
+       ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        listNode1.next = listNode2;
+
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
+        ListNode listNode = mergeTwoLists(listNode1, listNode3);
+    }
+
+    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
         ListNode prehead = new ListNode(-1);
 

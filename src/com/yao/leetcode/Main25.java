@@ -14,7 +14,6 @@ public class Main25 {
      * 当 k = 3 时，应当返回: 3->2->1->4->5
      * 当 k = 4 时，应当返回: 4->3->2->1->5
      * 说明 :
-     * <p>
      * 你的算法只能使用常数的额外空间。
      * 你不能只是单纯的改变节点内部的值，而是需要实际的进行节点交换。
      */
@@ -22,10 +21,8 @@ public class Main25 {
         if (head == null || head.next == null || k < 2) {
             return head;
         }
-
         ListNode dummy = new ListNode(0);
         dummy.next = head;
-
         ListNode tail = dummy, prev = dummy, temp;
         int count;
         while (true) {
@@ -37,15 +34,7 @@ public class Main25 {
             if (tail == null) {
                 break;//Has reached the end
             }
-
-
             head = prev.next;//for next cycle
-            // prev-->temp-->...--->....--->tail-->....
-            // Delete @temp and insert to the next position of @tail
-            // prev-->...-->...-->tail-->head-->...
-            // Assign @temp to the next node of @prev
-            // prev-->temp-->...-->tail-->...-->...
-            // Keep doing until @tail is the next node of @prev
             while (prev.next != tail) {
                 temp = prev.next;//Assign
                 prev.next = temp.next;//Delete
@@ -54,12 +43,9 @@ public class Main25 {
                 tail.next = temp;//Insert
 
             }
-
             tail = head;
             prev = head;
-
         }
         return dummy.next;
-
     }
 }

@@ -14,25 +14,33 @@ import java.util.*;
  */
 public class Main17 {
 
-    public static void main(String[] args) {
-        List<String> list = letterCombinations("23");
-        for (String s : list) {
-            System.out.print(s);
+    public List<String> letterCombinations2(String digits) {
+        if (digits == null || digits.length() == 0) {
+            return new ArrayList<String>();
         }
-    }
-    public static List<String> letterCombinations(String digits) {
-        LinkedList<String> ans = new LinkedList<String>();
-        if(digits.isEmpty()) return ans;
-        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        ans.add("");
-        for(int i =0; i<digits.length();i++){
-            int x = Character.getNumericValue(digits.charAt(i));
-            while(ans.peek().length()==i){
-                String t = ans.remove();
-                for(char s : mapping[x].toCharArray())
-                    ans.add(t+s);
+        //一个映射表，第二个位置是"abc“,第三个位置是"def"。。。
+        //这里也可以用map，用数组可以更节省点内存
+        String[] letterMap = {
+                " ", "*", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
+        };
+        List<String> res =  new LinkedList<>();
+        //先往队列中加入一个空字符
+        res.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            //由当前遍历到的字符，取字典表中查找对应的字符串
+            String letters = letterMap[digits.charAt(i) - '0'];
+            int size = res.size();
+            //计算出队列长度后，将队列中的每个元素挨个拿出来
+            for (int j = 0; j < size; j++) {
+                //每次都从队列中拿出第一个元素
+                String tmp = res.remove(0);
+                //然后跟"def"这样的字符串拼接，并再次放到队列中
+                for (int k = 0; k < letters.length(); k++) {
+                    res.add(tmp + letters.charAt(k));
+                }
             }
         }
-        return ans;
+        return res;
     }
+
 }
