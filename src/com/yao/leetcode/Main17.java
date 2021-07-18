@@ -10,29 +10,33 @@ import java.util.*;
  * 示例:
  * 输入："23"
  * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
- *
  */
 public class Main17 {
 
     public static void main(String[] args) {
-        List<String> list = letterCombinations("23");
+        Main17 main17 = new Main17();
+        List<String> list = main17.letterCombinations("23");
         for (String s : list) {
             System.out.print(s);
         }
     }
-    public static List<String> letterCombinations(String digits) {
-        LinkedList<String> ans = new LinkedList<String>();
-        if(digits.isEmpty()) return ans;
-        String[] mapping = new String[] {"0", "1", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        ans.add("");
-        for(int i =0; i<digits.length();i++){
-            int x = Character.getNumericValue(digits.charAt(i));
-            while(ans.peek().length()==i){
-                String t = ans.remove();
-                for(char s : mapping[x].toCharArray())
-                    ans.add(t+s);
+
+    public List<String> letterCombinations(String digits) {
+        List<String> result = new LinkedList<String>();
+        if(digits == null || digits.length() == 0)
+            return result;
+        String[] mapping = { " ", "*", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
+        result.add("");
+        for(int i = 0; i < digits.length(); i++){
+            String mapStr = mapping[digits.charAt(i) - '0'];
+            int size = result.size();
+            for(int j = 0; j<size ; j++ ){
+                String temp = result.remove(0);
+                for(int k = 0; k < mapStr.length(); k++){
+                    result.add(temp + mapStr.charAt(k));
+                }
             }
         }
-        return ans;
+        return result;
     }
 }

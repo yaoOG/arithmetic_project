@@ -18,6 +18,11 @@ import java.util.List;
  */
 public class Main22 {
 
+    public static void main(String[] args) {
+        Main22 main22 = new Main22();
+        List<String> strings = main22.generateParenthesis(3);
+    }
+
     public List<String> result = new ArrayList<>();
 
     public List<String> generateParenthesis(int n) {

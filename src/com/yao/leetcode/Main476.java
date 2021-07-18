@@ -16,6 +16,6 @@ package com.yao.leetcode;
  */
 public class Main476 {
     public int findComplement(int num) {
-
+        return  0;
     }
 }

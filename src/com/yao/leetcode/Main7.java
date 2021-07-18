@@ -28,10 +28,10 @@ public class Main7 {
 
         while (x != 0)
         {
-            int tail = x % 10;
-            int newResult = result * 10 + tail;
+            int carry = x % 10;
+            int newResult = result * 10 + carry;
             //通过倒序运算，将之后的结果与之前的结果比较，如果不相等说明newResult溢出了
-            if ((newResult - tail) / 10 != result)
+            if ((newResult - carry) / 10 != result)
             { return 0; }
             result = newResult;
             x = x / 10;
