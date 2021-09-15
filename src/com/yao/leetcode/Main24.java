@@ -1,8 +1,7 @@
 package com.yao.leetcode;
 
 /**
- * @author zhuyao
- * @date 2019/02/20
+ * @author choo
  */
 public class Main24 {
     /**
@@ -14,23 +13,38 @@ public class Main24 {
      * @return
      */
     public ListNode swapPairs(ListNode head) {
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode temp = dummyHead;
+        while (temp.next != null && temp.next.next != null) {
+            ListNode node1 = temp.next;
+            ListNode node2 = temp.next.next;
+            //交换temp.next和temp.next.next
+            temp.next = node2;
+            node1.next = node2.next;
+            node2.next = node1;
 
-        head = dummy;
-        while (head.next != null && head.next.next != null) {
-            ListNode n1 = head.next, n2 = head.next.next;
-            // head->n1->n2->...
-            // => head->n2->n1->...
-            head.next = n2;
-            n1.next = n2.next;
-            n2.next = n1;
-
-            // move to next pair
-            head = n1;
+            temp = node1;
         }
 
-        return dummy.next;
-
+        return dummyHead.next;
     }
+
+    public ListNode swapPairs2(ListNode head) {
+        ListNode dummyNode = new ListNode(0);
+        dummyNode.next = head;
+        ListNode cur = dummyNode;
+        while (cur.next != null && cur.next.next != null) {
+            ListNode node1 = cur.next;
+            ListNode node2 = cur.next.next;
+
+            cur.next=node2;
+            node1.next = node2.next;
+            node2.next = node1;
+
+            cur = node1;
+        }
+        return dummyNode.next;
+    }
+
 }

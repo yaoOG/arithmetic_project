@@ -20,23 +20,37 @@ package com.yao.leetcode;
  * }
  */
 public class Main19 {
+
+    public static void main(String[] args) {
+        ListNode listNode1 = new ListNode(1);
+        ListNode listNode2 = new ListNode(2);
+        ListNode listNode3 = new ListNode(3);
+        ListNode listNode4 = new ListNode(4);
+        ListNode listNode5 = new ListNode(5);
+        listNode1.next = listNode2;
+        listNode2.next = listNode3;
+        listNode3.next = listNode4;
+        listNode4.next = listNode5;
+        Main19 main19 = new Main19();
+        ListNode listNode = main19.removeNthFromEnd(listNode1, 2);
+    }
+
     public ListNode removeNthFromEnd(ListNode head, int n) {
 
-        ListNode start = new ListNode(0);
-        ListNode slow = start, fast = start;
-        slow.next = head;
-
-        //Move fast in front so that the gap between slow and fast becomes n
-        for (int i = 1; i <= n + 1; i++) {
+        ListNode dummyHead = new ListNode(0);
+        dummyHead.next = head;
+        ListNode slow = dummyHead, fast = dummyHead;
+        int i = 0;
+        while (i < n+1) {
             fast = fast.next;
+            i++;
         }
-        //Move fast to the end, maintaining the gap
         while (fast != null) {
-            slow = slow.next;
             fast = fast.next;
+            slow = slow.next;
         }
-        //Skip the desired node
         slow.next = slow.next.next;
-        return start.next;
+        return dummyHead.next;
     }
+
 }

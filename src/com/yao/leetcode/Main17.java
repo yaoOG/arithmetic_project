@@ -10,33 +10,37 @@ import java.util.*;
  * 示例:
  * 输入："23"
  * 输出：["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+ *
  */
 public class Main17 {
 
-    public static void main(String[] args) {
-        Main17 main17 = new Main17();
-        List<String> list = main17.letterCombinations("23");
-        for (String s : list) {
-            System.out.print(s);
+    public List<String> letterCombinations2(String digits) {
+        if (digits == null || digits.length() == 0) {
+            return new ArrayList<String>();
         }
-    }
-
-    public List<String> letterCombinations(String digits) {
-        List<String> result = new LinkedList<String>();
-        if(digits == null || digits.length() == 0)
-            return result;
-        String[] mapping = { " ", "*", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-        result.add("");
-        for(int i = 0; i < digits.length(); i++){
-            String mapStr = mapping[digits.charAt(i) - '0'];
-            int size = result.size();
-            for(int j = 0; j<size ; j++ ){
-                String temp = result.remove(0);
-                for(int k = 0; k < mapStr.length(); k++){
-                    result.add(temp + mapStr.charAt(k));
+        //一个映射表，第二个位置是"abc“,第三个位置是"def"。。。
+        //这里也可以用map，用数组可以更节省点内存
+        String[] letterMap = {
+                " ", "*", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"
+        };
+        List<String> res =  new LinkedList<>();
+        //先往队列中加入一个空字符
+        res.add("");
+        for (int i = 0; i < digits.length(); i++) {
+            //由当前遍历到的字符，取字典表中查找对应的字符串
+            String letters = letterMap[digits.charAt(i) - '0'];
+            int size = res.size();
+            //计算出队列长度后，将队列中的每个元素挨个拿出来
+            for (int j = 0; j < size; j++) {
+                //每次都从队列中拿出第一个元素
+                String tmp = res.remove(0);
+                //然后跟"def"这样的字符串拼接，并再次放到队列中
+                for (int k = 0; k < letters.length(); k++) {
+                    res.add(tmp + letters.charAt(k));
                 }
             }
         }
-        return result;
+        return res;
     }
+
 }

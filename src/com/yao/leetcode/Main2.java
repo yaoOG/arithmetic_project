@@ -1,5 +1,7 @@
 package com.yao.leetcode;
 
+import java.lang.reflect.Field;
+
 /**
  * 给定两个非空链表来代表两个非负整数，位数按照逆序方式存储，它们的每个节点只存储单个数字。将这两数相加会返回一个新的链表。
  *
@@ -48,7 +50,7 @@ public class Main2 {
     }
 
     public static void main(String[] args) {
-        ListNode l1 = new ListNode(2);
+/*        ListNode l1 = new ListNode(2);
         ListNode l2 = new ListNode(4);
         ListNode l3 = new ListNode(3);
         l1.next=l2;
@@ -67,6 +69,24 @@ public class Main2 {
         while (l8!=null){
             System.out.println(l8.val);
             l8=l8.next;
+        }*/
+        Integer integer1 = new Integer(1);
+        Integer integer2 = new Integer(2);
+        swap(integer1, integer2);
+    }
+
+    public static void swap(Integer a, Integer b) {
+        int temp = a.intValue();
+        try {
+            Field value = Integer.class.getDeclaredField("value");
+            value.setAccessible(true);
+            value.set(a, b);
+            value.set(b, new Integer(temp));
+
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
         }
     }
 }

@@ -49,21 +49,52 @@ import java.util.TreeMap;
  * 解释: M = 1000, CM = 900, XC = 90, IV = 4.
  */
 public class Main12 {
+    public static TreeMap<Integer, String> map = new TreeMap<>();
+
+    static {
+        map.put(1, "I");
+        map.put(5, "V");
+        map.put(10, "X");
+        map.put(50, "L");
+        map.put(100, "C");
+        map.put(500, "D");
+        map.put(1000, "M");
+        map.put(4, "IV");
+        map.put(9, "IX");
+        map.put(40, "XL");
+        map.put(90, "XC");
+        map.put(400, "CD");
+        map.put(900, "CM");
+    }
+
+    public static String intToRoman(int num) {
+        StringBuilder ans = new StringBuilder();
+        while (num != 0) {
+            //floorEntry方法用来返回与最大键小于或等于给定的键
+            Map.Entry<Integer, String> entry = map.floorEntry(num);
+            ans.append(entry.getValue());
+            num -= entry.getKey();
+        }
+        return ans.toString();
+
+    }
+
     int[] values = {1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1};
     String[] symbols = {"M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"};
 
-    public String intToRoman(int num) {
-        StringBuilder sb = new StringBuilder();
-        for (int i = 0; i < values.length; i++) {
+    public String intToRoman2(int num) {
+        StringBuffer roman = new StringBuffer();
+        for (int i = 0; i < values.length; ++i) {
             int value = values[i];
-            String str = symbols[i];
+            String symbol = symbols[i];
             while (num >= value) {
                 num -= value;
-                sb.append(str);
+                roman.append(symbol);
             }
-            if (num == 0) break;
+            if (num == 0) {
+                break;
+            }
         }
-        return sb.toString();
+        return roman.toString();
     }
-
 }
