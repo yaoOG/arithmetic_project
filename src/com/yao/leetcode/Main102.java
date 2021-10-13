@@ -56,4 +56,15 @@ public class Main102 {
         }
         return result;
     }
+
+    public static void main(String[] args) {
+        Deque<Integer> deque = new LinkedList<>();
+        deque.offer(1);
+        deque.offer(2);
+        deque.addLast(3);
+        Integer pollFirst = deque.poll();
+        Integer pollFirst1 = deque.pollLast();
+        Integer integer = deque.peekLast();
+        System.out.println(integer);
+    }
 }

@@ -1,5 +1,8 @@
 package com.yao.leetcode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by zhuyao on 2018/05/02.
  * <p>
@@ -29,37 +32,36 @@ package com.yao.leetcode;
  * P     I
  */
 public class Main6 {
-    public static String convert(String s, int numRows) {
-        // 如果只有一行则不需要转换
+    public String convert(String s, int numRows) {
         if (numRows == 1) return s;
-
-        // 按照行数建立n个字符串用于存放结果
-        String [] res = new String[numRows];
-        for (int i = 0; i < numRows; i ++) res[i] = "";
-
-        // 按照z字形开始往字符串中添加元素
-        int p = 0, q = 0;
-        boolean direction = false;
-        while (p < s.length()) {
-            res[q] += s.charAt(p);
-            if (q == 0) direction = false;
-            if (q == numRows - 1) direction = true;
-            q = direction ? q - 1 : q + 1;
-            p++;
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.min(numRows, s.length()); i++) {
+            rows.add(new StringBuilder());
+        }
+        //表示当前行
+        int curRow = 0;
+        //表示向上一行还是向下一行
+        boolean goingDown = false;
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            //只有当我们向上移动到最上面的行或向下移动到最下面的行时，当前方向才会发生改变。
+            if (curRow == 0 || curRow == numRows - 1) {
+                goingDown = !goingDown;
+            }
+            curRow += goingDown ? 1 : -1;
         }
 
-        StringBuffer ans = new StringBuffer("");
-        for (String i : res) {
-            ans.append(i);
-        }
-
-        return ans.toString();
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder row : rows)
+            result.append(row);
+        return result.toString();
     }
 
 
     public static void main(String[] args) {
         String s = "PAYPALISHIRING";
-        String solution = convert(s, 4);
+        Main6 main6 = new Main6();
+        String solution = main6.convert(s, 4);
         System.out.println(solution);
     }
 }
