@@ -29,7 +29,7 @@ public class BinarySearch {
 
     /**
      * 重复元素的有序数组进行二分查找，返回元素下标集合
-     * 例如：arr:{1, 1, 1, 1, 9, 4, 6}  target:1 结果：[3, 2, 1, 0]
+     * 例如：arr:{1, 1, 1, 1, 4, 6 ，9}  target:1 结果：[3, 2, 1, 0]
      * @param arr
      * @param target
      * @return

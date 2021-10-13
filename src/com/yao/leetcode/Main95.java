@@ -30,6 +30,12 @@ import java.util.List;
  *    2     1         2                 3
  */
 public class Main95 {
+
+    public static void main(String[] args) {
+        Main95 main95 = new Main95();
+        List<TreeNode> treeNodes = main95.generateTrees(3);
+        System.out.println(treeNodes.toString());
+    }
     public List<TreeNode> generateTrees(int n) {
         if (n == 0) {
             return new LinkedList<>();

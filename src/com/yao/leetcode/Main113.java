@@ -26,33 +26,67 @@ import java.util.List;
  * ]
  */
 public class Main113 {
-    public List<List<Integer>> pathSum(TreeNode root, int sum) {
-        List<List<Integer>> res = new ArrayList<>();
-        List<Integer> path = new ArrayList<>();
-        dfs(root, sum, res, path);
-        return res;
+
+    public static void main(String[] args) {
+        TreeNode treeNode = new TreeNode(5);
+        TreeNode treeNode1 = new TreeNode(8);
+        TreeNode treeNode2 = new TreeNode(4);
+
+        TreeNode treeNode3 = new TreeNode(5);
+        TreeNode treeNode4 = new TreeNode(11);
+        TreeNode treeNode5 = new TreeNode(4);
+        TreeNode treeNode6 = new TreeNode(13);
+
+        TreeNode treeNode7 = new TreeNode(7);
+        TreeNode treeNode8 = new TreeNode(2);
+        TreeNode treeNode9 = new TreeNode(1);
+
+        treeNode.left = treeNode2;
+        treeNode.right = treeNode1;
+
+        treeNode2.left = treeNode4;
+
+
+        treeNode1.right = treeNode5;
+        treeNode1.left = treeNode6;
+
+        treeNode4.left = treeNode7;
+        treeNode4.right = treeNode8;
+
+        treeNode5.left = treeNode3;
+        treeNode5.right = treeNode9;
+
+        Main113 main113 = new Main113();
+        List<List<Integer>> lists = main113.pathSum(treeNode, 22);
+        System.out.println(lists.toString());
+
+
     }
 
-    private void dfs(TreeNode root, int sum, List<List<Integer>> res, List<Integer> path) {
+    List<List<Integer>> ret = new LinkedList<List<Integer>>();
+    Deque<Integer> path = new LinkedList<Integer>();
+
+    public List<List<Integer>> pathSum(TreeNode root, int targetSum) {
+        dfs(root, targetSum);
+        return ret;
+    }
+
+    public void dfs(TreeNode root, int targetSum) {
         if (root == null) {
             return;
         }
-        path.add(root.val);
-        if (root.left == null && root.right == null) {
-            if (root.val == sum) {
-                res.add(new ArrayList<>(path));
-            }
-            return;
+        path.offerLast(root.val);
+        targetSum -= root.val;
+        if (root.left == null && root.right == null && targetSum == 0) {
+            ret.add(new LinkedList<Integer>(path));
         }
-        if (root.left != null) {
-            dfs(root.left, sum - root.val, res, path);
-            path.remove(path.size() - 1);
-        }
-        if (root.right != null) {
-            dfs(root.right, sum - root.val, res, path);
-            path.remove(path.size() - 1);
-        }
+        dfs(root.left, targetSum);
+        dfs(root.right, targetSum);
+        //最后一个结点出队，重新将其他兄弟结点加进来进行计算
+        path.pollLast();
     }
+
+
 
     public List<List<Integer>> pathSum2(TreeNode root, int sum) {
         List<List<Integer>> res = new ArrayList<>();

@@ -36,13 +36,23 @@ public class Main57 {
 
     //intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
     public static void main(String[] args) {
-        int intervals[][] = {{1, 2}, {3, 5},{6,7},{8,10},{12,16}};
+        int intervals[][] = {{1, 2}, {3, 5}, {6, 7}, {8, 10}, {12, 16}};
         int newInterval[] = {4, 8};
         insert(intervals, newInterval);
 
 
     }
 
+    /**
+     * placed变量的作用
+     * 那么我们应当在什么时候将区间 S 加入答案呢？
+     * 由于我们需要保证答案也是按照左端点排序的，因此当我们遇到第一个 满足 li > right的区间时，说明以后遍历到的区间不会与 S 重叠，
+     * 并且它们左端点一定会大于 S 的左端点。此时我们就可以将 S 加入答案。特别地，如果不存在这样的区间，我们需要在遍历结束后，将 S 加入答案。
+     *
+     * @param intervals
+     * @param newInterval
+     * @return
+     */
     public static int[][] insert(int[][] intervals, int[] newInterval) {
         int left = newInterval[0];
         int right = newInterval[1];

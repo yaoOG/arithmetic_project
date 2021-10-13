@@ -1,26 +1,28 @@
 package com.yao.data.structrue.sort.select;
 
-import java.util.Arrays;
-
 /**
  * @author choo
  */
-public class HeapSort {
+class Solution {
+
     public static void main(String[] args) {
-        int[] arr = {1, 8, 9, 6, 5, 4, 3, 7, 2};
-        HeapSort heap = new HeapSort();
-        heap.sort(arr);
-        System.out.println(Arrays.toString(arr));
+        Solution solution = new Solution();
+        int kthLargest = solution.findKthLargest(new int[]{3, 2, 1, 5, 6, 4}, 2);
+        System.out.println(kthLargest);
+    }
+    public int findKthLargest(int[] nums, int k) {
+        sort(nums,k);
+        return nums[nums.length-k];
     }
 
-    public void sort(int[] arr) {
+    public void sort(int[] arr,int k) {
         int length = arr.length;
         //构建大顶堆,从第一个非叶子节点开始
         for (int i = length / 2 - 1; i >= 0; i--) {
             adjust(arr, i, length);
         }
         //调整大顶堆，将堆顶的值交换到数组最后，调整其他元素构建新的大顶堆，循环往复，最后生成排序好的数组
-        for (int i = length - 1; i > 0; i--) {
+        for (int i = length - 1; i > length - k - 1; i--) {
             swap(arr, 0, i);
             adjust(arr, 0, i);
         }
@@ -56,4 +58,6 @@ public class HeapSort {
         arr[a] = arr[b];
         arr[b] = temp;
     }
+
+
 }

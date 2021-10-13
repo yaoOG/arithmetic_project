@@ -23,10 +23,10 @@ import java.util.*;
 @SuppressWarnings("unused")
 public class FastSort {
     public static void main(String[] args) {
-        int[] tempArray = {12, 20, 5, 16, 15, 1, 30, 45, 23, 9};
+        int[] tempArray = {2,1,6,4,3};
         int start = 0;
         int end = tempArray.length - 1;
-        sort2(tempArray, start, end);
+        sort(tempArray, start, end);
         for (int i : tempArray) {
             System.out.println(i);
         }

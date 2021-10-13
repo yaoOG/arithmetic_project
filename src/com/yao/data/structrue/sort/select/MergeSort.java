@@ -13,17 +13,15 @@ public class MergeSort {
 
     public static void main(String[] args) {
         int[] data = new int[]{5, 3, 6, 2, 1, 9, 4, 8, 7};
-        print(data);
-        mergeSort(data);
-        System.out.println("排序后的数组：");
-        print(data);
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(data);
     }
 
-    private static void mergeSort(int[] data) {
+    private void mergeSort(int[] data) {
         sort(data, 0, data.length - 1);
     }
 
-    public static void sort(int[] data, int left, int right) {
+    public void sort(int[] data, int left, int right) {
         if (left >= right) {
             return;
         }
@@ -35,7 +33,6 @@ public class MergeSort {
         sort(data, center + 1, right);
         // 合并
         merge(data, left, center, right);
-        print(data);
     }
 
     /**
@@ -46,7 +43,7 @@ public class MergeSort {
      * @param center 左数组的最后一个元素的索引，center+1是右数组第一个元素的索引
      * @param right  右数组最后一个元素的索引
      */
-    private static void merge(int[] data, int left, int center, int right) {
+    public void merge(int[] data, int left, int center, int right) {
         // 临时数组
         int[] tmpArr = new int[data.length];
         // 右数组第一个元素索引
@@ -77,7 +74,7 @@ public class MergeSort {
         }
     }
 
-    public static void print(int[] data) {
+    public void print(int[] data) {
         for (int datum : data) {
             System.out.print(datum + "\t");
         }
