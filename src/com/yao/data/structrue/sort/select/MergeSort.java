@@ -11,12 +11,6 @@ package com.yao.data.structrue.sort.select;
  */
 public class MergeSort {
 
-    public static void main(String[] args) {
-        int[] data = new int[]{5, 3, 6, 2, 1, 9, 4, 8, 7};
-        MergeSort mergeSort = new MergeSort();
-        mergeSort.mergeSort(data);
-    }
-
     private void mergeSort(int[] data) {
         sort(data, 0, data.length - 1);
     }
@@ -80,5 +74,13 @@ public class MergeSort {
         }
         System.out.println();
     }
+
+
+    public static void main(String[] args) {
+        int[] data = new int[]{5, 3, 6, 2, 1, 9, 4, 8, 7};
+        MergeSort mergeSort = new MergeSort();
+        mergeSort.mergeSort(data);
+    }
+
 
 }

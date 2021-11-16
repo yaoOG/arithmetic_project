@@ -6,12 +6,6 @@ import java.util.Arrays;
  * @author choo
  */
 public class HeapSort {
-    public static void main(String[] args) {
-        int[] arr = {1, 8, 9, 6, 5, 4, 3, 7, 2};
-        HeapSort heap = new HeapSort();
-        heap.sort(arr);
-        System.out.println(Arrays.toString(arr));
-    }
 
     public void sort(int[] arr) {
         int length = arr.length;
@@ -43,6 +37,13 @@ public class HeapSort {
         }
         //将父节点的值放到最终位置
         arr[i] = parentNode;
+    }
+
+    public static void main(String[] args) {
+        int[] arr = {1, 8, 9, 6, 5, 4, 3, 7, 2};
+        HeapSort heap = new HeapSort();
+        heap.sort(arr);
+        System.out.println(Arrays.toString(arr));
     }
 
     /**

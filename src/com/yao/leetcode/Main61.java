@@ -31,44 +31,28 @@ public class Main61 {
         ListNode result = main61.rotateRight(head, 2);
     }
 
-    /**
-     * 算法实现很直接：
-     *
-     * 找到旧的尾部并将其与链表头相连 old_tail.next = head，整个链表闭合成环，同时计算出链表的长度 n。
-     * 找到新的尾部，第 (n - k % n - 1) 个节点 ，新的链表头是第 (n - k % n) 个节点。
-     * 断开环 new_tail.next = None，并返回新的链表头 new_head。
-     *
-     * @param head
-     * @param k
-     * @return
-     */
     public ListNode rotateRight(ListNode head, int k) {
-
-        // base cases
-        if (head == null) return null;
-        if (head.next == null) return head;
-
-        // close the linked list into the ring
-        ListNode old_tail = head;
-        int n = 0;
-        while (old_tail.next != null) {
-            old_tail = old_tail.next;
-            n++;
+        if (head == null || head.next == null || k == 0) {
+            return head;
         }
-
-        old_tail.next = head;
-
-        // find new tail : (n - k % n - 1)th node
-        // and new head : (n - k % n)th node
-        // k%n是为了k>=n的情况
-        ListNode new_tail = head;
-        for (int i = 0; i < n - k % n - 1; i++)
-            new_tail = new_tail.next;
-        ListNode new_head = new_tail.next;
-
-        // break the ring
-        new_tail.next = null;
-
-        return new_head;
+        int length = 1;
+        ListNode currentNode = head;
+        while (currentNode.next != null) {
+            currentNode = currentNode.next;
+            length++;
+        }
+        int position = length - k % length;
+        //如果为链表长度的整数倍直接返回head
+        if (position == length) {
+            return head;
+        }
+        //闭合为环
+        currentNode.next = head;
+        while (position-- > 0) {
+            currentNode = currentNode.next;
+        }
+        ListNode result = currentNode.next;
+        currentNode.next = null;
+        return result;
     }
 }

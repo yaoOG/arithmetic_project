@@ -25,6 +25,7 @@ import java.util.Arrays;
 @SuppressWarnings("unused")
 public class BubbleSort {
     public static void bubbleSort1(int[] a, int n) {
+        //表示n次排序过程。
         for (int i = 0; i < n; i++) {
             for (int j = 1; j < n - i; j++) {
                 //前面的数字大于后面的数字就交换
