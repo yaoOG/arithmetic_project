@@ -46,4 +46,9 @@ public class Main1143 {
         }
         return dp[length1][length2];
     }
+
+    public static void main(String[] args) {
+        Main1143 main1143 = new Main1143();
+        main1143.longestCommonSubsequence("abcdfgdf", "abc");
+    }
 }
