@@ -26,26 +26,35 @@ import java.util.List;
  */
 public class Main78 {
 
+
+
+    List<List<Integer>> result = new ArrayList<>();
+    List<Integer> tmp = new ArrayList<>();
+
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<>();
-        if (nums == null) {
-            return ans;
-        }
-        dfs(ans, nums, new ArrayList<>(), 0);
-        return ans;
+
+        result.add(new ArrayList<>());
+        dfs(nums,0);
+        return result;
     }
 
-    private void dfs(List<List<Integer>> ans, int[] nums, List<Integer> list, int index) {
-        // 终止条件
-        if (index == nums.length) {
-            ans.add(new ArrayList<>(list));
-        }
-        // 处理当前层
-        dfs(ans, nums, list, index + 1);
-        list.add(nums[index]);
-        dfs(ans, nums, list, index + 1);
-        // reverse the current state
-        list.remove(list.size() - 1);
+    public void dfs(int[] nums, int start) {
 
+        if (start == nums.length){
+            return;
+        }
+
+        for (int i = start; i < nums.length; i++) {
+            tmp.add(nums[i]);
+            result.add(new ArrayList<>(tmp));
+            dfs(nums,i + 1);
+            tmp.remove(tmp.size()-1);
+        }
+    }
+
+    public static void main(String[] args) {
+        Main78 main78 = new Main78();
+        List<List<Integer>> subsets = main78.subsets(new int[]{1, 2, 3});
+        System.out.println(subsets);
     }
 }

@@ -38,11 +38,10 @@ public class BinaryInsertSort {
                     }
                 }
                 //将low~i处数据整体向后移动1位
-                for (int j = i; j > low; j--) {
-                    data[j] = data[j - 1];
+                for (int j = i - 1; j >= low; j--) {
+                    data[j + 1] = data[j];
                 }
                 data[low] = tmp;
-                print(data);
             }
         }
     }
