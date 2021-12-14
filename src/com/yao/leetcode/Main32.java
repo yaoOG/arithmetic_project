@@ -32,7 +32,7 @@ public class Main32 {
 
     public static void main(String[] args) {
         Main32 main32 = new Main32();
-        int i = main32.longestValidParentheses(")()())");
+        int i = main32.longestValidParentheses(")))()())");
         System.out.println(i);
     }
 }
