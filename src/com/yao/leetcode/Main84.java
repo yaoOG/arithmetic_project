@@ -1,9 +1,6 @@
 package com.yao.leetcode;
 
-import java.util.ArrayDeque;
-import java.util.Arrays;
-import java.util.Deque;
-import java.util.Stack;
+import java.util.*;
 
 /**
  * @author Daniel
@@ -116,6 +113,39 @@ public class Main84 {
         }
 
         return area;
+    }
+
+    public int largestRectangleArea(int[] heights) {
+        int length = heights.length;
+        int[] left = new int[length];
+        int[] right = new int[length];
+        Deque<Integer> stack = new LinkedList<>();
+        for (int i = 0; i < length; i++) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            left[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
+        }
+
+        stack.clear();
+
+        for (int i = length - 1; i > 0; i--) {
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
+            }
+            right[i] = stack.isEmpty() ? -1 : stack.peek();
+            stack.push(i);
+        }
+
+        int result = 0;
+
+        for (int i = 0; i < length; i++) {
+            result = Math.max((right[i] - left[i] + 1) * heights[i], result);
+        }
+
+        return result;
+
     }
 
     public static void main(String[] args) {
