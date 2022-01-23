@@ -27,6 +27,12 @@ package com.yao.leetcode;
  */
 public class Main96 {
 
+    public static void main(String[] args) {
+        Main96 main96 = new Main96();
+        int count = main96.numTrees(5);
+        System.out.println(count);
+    }
+
     public int numTrees(int n) {
         int[] g = new int[n + 1];
         g[0] = g[1] = 1;
