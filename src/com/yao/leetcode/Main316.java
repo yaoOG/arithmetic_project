@@ -40,7 +40,8 @@ public class Main316 {
         //存储每一个字符最后出现的位置
         HashMap<Character, Integer> lastOccurrence = new HashMap<>();
 
-        for (int i = 0; i < s.length(); i++) lastOccurrence.put(s.charAt(i), i);
+        for (int i = 0; i < s.length(); i++)
+            lastOccurrence.put(s.charAt(i), i);
 
         for (int i = 0; i < s.length(); i++) {
             char currentChar = s.charAt(i);

@@ -35,24 +35,36 @@ public class Main1209 {
         System.out.println(result);
     }
 
-    public String removeDuplicates(String s, int k) {
 
-        StringBuilder sb = new StringBuilder(s);
-        //当前字符与前一个不同时，往栈中压入 1。否则栈顶元素加 1。
-        Stack<Integer> counts = new Stack<>();
-        for (int i = 0; i < sb.length(); ++i) {
-            if (i == 0 || sb.charAt(i) != sb.charAt(i - 1)) {
-                counts.push(1);
+    class Pair {
+        int cnt;
+        char ch;
+        public Pair(int cnt, char ch) {
+            this.ch = ch;
+            this.cnt = cnt;
+        }
+    }
+
+
+    public String removeDuplicates(String s, int k) {
+        Stack<Pair> stack = new Stack<>();
+        for (int i = 0; i < s.length(); i++) {
+            if (stack.empty() || s.charAt(i) != stack.peek().ch) {
+                stack.push(new Pair(1,s.charAt(i)));
             } else {
-                int incremented = counts.pop() + 1;
-                if (incremented == k) {
-                    sb.delete(i - k + 1, i + 1);
-                    i = i - k;
-                } else {
-                    counts.push(incremented);
+                if (++stack.peek().cnt == k) {
+                    stack.pop();
                 }
             }
         }
-        return sb.toString();
+        StringBuilder b = new StringBuilder();
+        while (!stack.empty()) {
+            Pair p = stack.pop();
+            for (int i = 0; i < p.cnt; i++) {
+                b.append(p.ch);
+            }
+        }
+        return b.reverse().toString();
+
     }
 }

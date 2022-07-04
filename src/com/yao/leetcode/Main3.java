@@ -1,5 +1,6 @@
 package com.yao.leetcode;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -16,26 +17,35 @@ import java.util.Set;
  */
 public class Main3 {
 
-    public static int lengthOfLongestSubstring(String s) {
-        int n = s.length();
+    /**
+     * j来代表快指针，当当前字符没有重复的情况下向后遍历，同时将字符放入set存储
+     * i来代表慢指针，当j所在位置的字符出现重复时，从set中删除i所在位置的字符，也就是之前遍历过的字符，直到set中不存在与当前字符重复的字符
+     * set来存储遍历过程中的不重复字符串
+     * @param s
+     * @return
+     */
+    public int lengthOfLongestSubstring(String s) {
+        int i = 0, j = 0, max = 0;
         Set<Character> set = new HashSet<>();
-        int ans = 0, i = 0, j = 0;
-        while (i < n && j < n) {
-            // try to extend the range [i, j]
-            if (!set.contains(s.charAt(j))){
+
+        while (j < s.length()) {
+            if (!set.contains(s.charAt(j))) {
                 set.add(s.charAt(j++));
-                ans = Math.max(ans, j - i);
+                max = Math.max(max, set.size());
             } else {
                 set.remove(s.charAt(i++));
             }
         }
-        return ans;
+
+        return max;
     }
 
     public static void main(String[] args) {
-        String str = "abcabcbb";
-        int len = lengthOfLongestSubstring(str);
+        Main3 main3 = new Main3();
+        String str = "pwwkew";
+        int len = main3.lengthOfLongestSubstring(str);
         System.out.println(len);
+
     }
 
 }
