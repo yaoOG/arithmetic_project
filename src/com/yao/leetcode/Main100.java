@@ -105,7 +105,7 @@ public class Main100 {
      * @param q
      * @return
      */
-    /*public boolean isSameTree2(TreeNode p, TreeNode q) {
+    public boolean isSameTree3(TreeNode p, TreeNode q) {
         if (p == null && q == null) {
             return true;
         } else if (p == null || q == null) {
@@ -142,5 +142,5 @@ public class Main100 {
             }
         }
         return queue1.isEmpty() && queue2.isEmpty();
-    }*/
+    }
 }
