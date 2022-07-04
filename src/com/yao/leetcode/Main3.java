@@ -25,8 +25,7 @@ public class Main3 {
             if (!set.contains(s.charAt(j))){
                 set.add(s.charAt(j++));
                 ans = Math.max(ans, j - i);
-            }
-            else {
+            } else {
                 set.remove(s.charAt(i++));
             }
         }
