@@ -5,9 +5,9 @@ package com.yao.data.structrue.tree;
  * @date 2019/03/01
  */
 public class TreeNode {
-    int val;
-    TreeNode left;
-    TreeNode right;
+    public int val;
+    public TreeNode left;
+    public TreeNode right;
     /**
      * 左子树的最长距离
      */
@@ -17,7 +17,7 @@ public class TreeNode {
      */
     int nMaxRight;
 
-    TreeNode(int x) {
+    public TreeNode(int x) {
         val = x;
     }
 }
