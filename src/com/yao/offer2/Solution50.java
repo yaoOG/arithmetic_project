@@ -25,4 +25,26 @@ public class Solution50 {
         map.put(path,map.get(path) - 1);
         return count;
     }
+
+    public static void main(String[] args) {
+
+        TreeNode treeNode5 = new TreeNode(5);
+        TreeNode treeNode2 = new TreeNode(2);
+        TreeNode treeNode1 = new TreeNode(1);
+        TreeNode treeNode6 = new TreeNode(6);
+        TreeNode treeNode4 = new TreeNode(4);
+        TreeNode treeNode3 = new TreeNode(3);
+        TreeNode treeNode7 = new TreeNode(7);
+
+        treeNode5.left = treeNode2;
+        treeNode5.right = treeNode4;
+        treeNode2.left = treeNode1;
+        treeNode2.right = treeNode6;
+        treeNode4.left =treeNode3;
+        treeNode4.right = treeNode7;
+
+        Solution50 solution50 = new Solution50();
+        solution50.pathSum(treeNode5, 8);
+
+    }
 }
