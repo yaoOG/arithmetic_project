@@ -3,7 +3,7 @@ package com.yao.offer2;
 public class Solution62 {
     class Trie {
 
-        static class TrieNode {
+         class TrieNode {
             TrieNode children[];
             boolean isWord;
             public TrieNode() {

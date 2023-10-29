@@ -5,18 +5,16 @@ import java.util.Map;
 
 public class Main1 {
 
+    //map的key存储数组中的值，value存储数组的下标
     public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            map.put(nums[i], i);
-        }
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement) && map.get(complement) != i) {
-                return new int[]{i, map.get(complement)};
+        Map<Integer,Integer>  map = new HashMap<>();
+        for (int i = 0 ; i < nums.length; i++) {
+            if(map.containsKey(target - nums[i])){
+                return new int[]{map.get(target - nums[i]) , i};
             }
+            map.put(nums[i],i);
         }
-        throw new IllegalArgumentException("No two sum solution");
+        return new int[0];
     }
 
     public static void main(String[] args) {
@@ -28,4 +26,5 @@ public class Main1 {
             System.out.println(nums2[i]);
         }
     }
+
 }

@@ -30,22 +30,22 @@ public class CoinProblem {
         }
 
         // 其他币种数量
-        int coninCount = -1;
+        int coinCount = -1;
         // 剩余的币种
         int[] restCoins = Arrays.copyOfRange(coins, 1, coins.length);
         while (useCurrentCoinCount >= 0) {
             // 否则尝试用剩余面值求当前余额的硬币总数
-            coninCount = getMinCoinCountOfValueHelper(restTotal, restCoins);
+            coinCount = getMinCoinCountOfValueHelper(restTotal, restCoins);
 
             // 如果后续没有有可用组合,退一步，当前useCurrentCoinCount币数减1
-            if (coninCount == -1) {
+            if (coinCount == -1) {
                 // 否则尝试把当前面值数-1
                 useCurrentCoinCount--;
                 // 重新计算restTotal
                 restTotal = total - useCurrentCoinCount * currentCoin;
 
             } else {
-                return useCurrentCoinCount + coninCount;
+                return useCurrentCoinCount + coinCount;
             }
         }
 

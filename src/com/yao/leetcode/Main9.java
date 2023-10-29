@@ -44,7 +44,9 @@ public class Main9 {
 
     public static void main(String[] args) {
         Main9 main9 = new Main9();
-        boolean palindrome = main9.isPalindrome(12321);
+        boolean palindrome = main9.isPalindrome(10);
         System.out.println(palindrome);
     }
+
+
 }
