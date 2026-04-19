@@ -1,4 +1,4 @@
-package com.daniel.twoTree;
+package com.daniel.binaryTree;
 
 import com.yao.data.structrue.tree.TreeNode;
 
