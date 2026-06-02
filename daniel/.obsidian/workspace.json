@@ -1,0 +1,293 @@
+{
+  "main": {
+    "id": "4a96cff88d65d9e6",
+    "type": "split",
+    "children": [
+      {
+        "id": "a8cc848e1adc0bed",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bb87e8034d86d136",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Java资深开发工程师补充清单.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Java资深开发工程师补充清单"
+            }
+          },
+          {
+            "id": "d6fc8a69ee3a37fe",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "java/并发/concurrentHashMap/ConcurrentHashMap.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "ConcurrentHashMap"
+            }
+          },
+          {
+            "id": "f21c535711b9281b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/事务/事务传播的行为有哪些.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "事务传播的行为有哪些"
+            }
+          },
+          {
+            "id": "b23c401869273aab",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/事务/@Transactional 的实现原理.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "@Transactional 的实现原理"
+            }
+          },
+          {
+            "id": "b9821d52eab040cf",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Spring/事务/@Transactional` 经常失效的原因.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "@Transactional` 经常失效的原因"
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "b7a18039f7380198",
+    "type": "split",
+    "children": [
+      {
+        "id": "de1954cac02b2cf7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d95e0a92c6c40431",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "3a9a1152712d8844",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "8e3fc34099fd24e7",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 376.5
+  },
+  "right": {
+    "id": "4eb92fc6910ef42e",
+    "type": "split",
+    "children": [
+      {
+        "id": "1e4a46996fb10e6c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b86e6e9dc91bd78c",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "java/并发/concurrentHashMap/ConcurrentHashMap.md",
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "ConcurrentHashMap 的反向链接列表"
+            }
+          },
+          {
+            "id": "5fa8364c10aca8e3",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "java/并发/concurrentHashMap/ConcurrentHashMap.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "ConcurrentHashMap 的出链列表"
+            }
+          },
+          {
+            "id": "843489813ed94962",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "f0a0db751c543133",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "8a769c32993d7e0c",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "java/并发/concurrentHashMap/ConcurrentHashMap.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "ConcurrentHashMap 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:新建数据库": false
+    }
+  },
+  "active": "d6fc8a69ee3a37fe",
+  "lastOpenFiles": [
+    "Spring/AOP/切面、切点、通知、Advisor、Interceptor 的关系.md",
+    "Spring/AOP",
+    "Java资深开发工程师补充清单.md",
+    "Spring/事务/@Transactional` 经常失效的原因.md",
+    "Spring/事务/@Transactional 的实现原理.md",
+    "Spring/事务/Spring管理的事务在多线程下会失效吗？.md",
+    "Spring/事务/事务传播的行为有哪些.md",
+    "Spring/事务",
+    "springBoot",
+    "5.4 BeanFactory 和 ApplicationContext 的区别.md",
+    "MQ/kafka/6.0 为什么用KRaft替换zookeeper.md",
+    "分布式协议算法/Paxos.md",
+    "分布式理论/CAP 理论.md",
+    "熔断&限流&降级/Resilience4j.md",
+    "分布式理论",
+    "熔断&限流&降级/熔断.md",
+    "java/基础/1.1 为什么我们需要反射？.md",
+    "java/基础/1.0 反射.md",
+    "codex生成的/基础/反射 注解 动态代理.md",
+    "java/基础",
+    "分布式协议算法/Raft 算法：分布式共识的基石.md",
+    "熔断&限流&降级/1.1 令牌桶 vs 滑动窗口.md",
+    "分布式协议算法",
+    "熔断&限流&降级/1.0 限流.md",
+    "codex生成的/分布式/限流熔断降级.md",
+    "codex生成的/分布式/微服务治理核心问题.md",
+    "codex生成的/分布式/接口幂等设计.md",
+    "codex生成的/分布式/缓存和数据库一致性.md",
+    "codex生成的/分布式/分库分表核心问题.md",
+    "codex生成的/分布式/分布式事务方案对比.md",
+    "codex生成的",
+    "java/jvm/四、问题排查/匿名内部类（或 Lambda）隐式持有外部类引用从而可能导致内存泄漏的问题。.md",
+    "java/jvm/一、运行时数据区",
+    "java/jvm/五、容易混淆的点",
+    "java/jvm/四、问题排查",
+    "Pasted image 20260330145515.png",
+    "Pasted image 20260326162457.png",
+    "Pasted image 20260326161549.png",
+    "Pasted Graphic.png",
+    "Pasted image 20260407135306.png",
+    "Pasted image 20260401154231.png",
+    "Pasted image 20260401154212.png",
+    "Pasted image 20260401154152.png",
+    "Pasted image 20260401154137.png",
+    "Pasted image 20260401154133.png",
+    "未命名.canvas"
+  ]
+}
